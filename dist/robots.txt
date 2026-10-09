@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.gastrobsc.com.br/sitemap.xml
+Sitemap: https://gastrobsc.com.br/sitemap.xml
