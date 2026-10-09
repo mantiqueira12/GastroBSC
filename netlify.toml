@@ -1,0 +1,6 @@
+[build]
+  publish = "dist"
+  command = "node check-site.mjs"
+
+[build.environment]
+  NODE_VERSION = "22"
