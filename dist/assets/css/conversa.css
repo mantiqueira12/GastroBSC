@@ -1,0 +1,41 @@
+.conversa-page .conv-main{max-width:860px;padding-block:56px 72px;min-width:0}
+.conversa-page .conv-main a{overflow-wrap:anywhere;text-underline-offset:3px}
+.conversa-page .conv-hero .eyebrow{margin-bottom:18px}
+.conversa-page .conv-hero h1{font-size:clamp(2rem,5vw,3.2rem);max-width:780px;overflow-wrap:anywhere}
+.conversa-page .conv-hero .lead{margin-top:24px;max-width:660px}
+.conversa-page .conv-hero .actions{margin-top:26px}
+.conversa-page .conv-section{margin-top:60px}
+.conversa-page .conv-section h2{font-size:clamp(1.5rem,3.6vw,2rem);margin-bottom:18px;scroll-margin-top:105px}
+.conversa-page .conv-section p+p{margin-top:16px}
+.conversa-page .conv-topics-title{font-size:1.1rem;color:var(--navy);margin:30px 0 4px}
+.conversa-page .conv-topics{list-style:none;margin:0;padding:0}
+.conversa-page .conv-topics li{margin-top:12px;padding:16px 20px;background:var(--pale);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;color:var(--muted)}
+.conversa-page .conv-topics li:nth-child(2){border-left-color:var(--green)}
+.conversa-page .conv-topics li:nth-child(3){border-left-color:var(--orange)}
+.conversa-page .conv-topics strong{color:var(--ink)}
+.conversa-page .conv-steps{list-style:none;margin:24px 0 0;padding:0;counter-reset:passo}
+.conversa-page .conv-steps>li{counter-increment:passo;position:relative;margin-top:16px;padding:28px 28px 28px 88px;background:var(--white);border:1px solid var(--line);border-radius:10px}
+.conversa-page .conv-steps>li::before{content:counter(passo);position:absolute;left:26px;top:28px;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:var(--white);font-weight:700;font-size:1.05rem}
+.conversa-page .conv-steps h3{color:var(--navy);font-size:1.3rem}
+.conversa-page .conv-tag{display:inline-block;margin-top:10px;padding:4px 12px;border-radius:14px;background:#edf5ef;color:var(--green);font-size:.8rem;font-weight:650;line-height:1.4}
+.conversa-page .conv-steps p{margin-top:14px}
+.conversa-page .conv-steps .conv-tag{margin-top:10px}
+.conversa-page .conv-bring{padding:14px 16px;background:var(--pale);border-radius:8px;font-size:.95rem}
+.conversa-page .conv-bring strong{color:var(--ink)}
+.conversa-page .conv-faq .conv-q{padding-top:22px;margin-top:22px;border-top:1px solid var(--line)}
+.conversa-page .conv-faq .conv-q:first-of-type{margin-top:8px}
+.conversa-page .conv-faq h3{font-size:1.12rem;color:var(--navy);letter-spacing:-.01em}
+.conversa-page .conv-faq p{margin-top:8px}
+.conversa-page .conv-cta{margin-top:60px;scroll-margin-top:105px}
+.conversa-page .conv-cta .cta-box{margin-top:0}
+.conversa-page .conv-note{margin-top:18px;max-width:880px;font-size:.82rem;line-height:1.6}
+.conversa-page .footer-inner{flex-wrap:wrap}
+.conversa-page .footer-inner .footer-region{order:4;flex-basis:100%}
+@media(max-width:800px){
+.conversa-page .conv-main{padding-top:32px;padding-bottom:56px}
+.conversa-page .conv-section{margin-top:48px}
+.conversa-page .conv-steps>li{padding:74px 20px 24px}
+.conversa-page .conv-steps>li::before{left:20px;top:22px}
+.conversa-page .conv-topics li{padding:14px 16px}
+.conversa-page .conv-cta{margin-top:48px}
+}

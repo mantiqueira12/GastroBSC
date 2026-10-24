@@ -1,0 +1,104 @@
+/*
+ * Estilos das ferramentas gratuitas (autodiagnóstico, e depois calculadora e checklist).
+ * Carrega depois de styles.css e usa as variáveis dele (--navy, --ink, --blue, --green, --orange, --muted, --line, --pale).
+ * Classes genéricas .tool-*. Sem style="" no HTML (CSP): todo visual vem daqui.
+ * Regra de marca: nenhuma cor vermelha. Atenção usa laranja; a faixa nunca é dada só pela cor
+ * (sempre vem o rótulo em texto e o indicador de três marcas).
+ */
+
+.tool-page [hidden]{display:none!important}
+.tool-page :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:3px}
+
+/* Estrutura */
+.tool-page .tool-main{max-width:860px;padding-block:48px 72px;min-width:0}
+.tool-page article{min-width:0}
+.tool-page h1{font-size:clamp(2rem,5vw,3.2rem);max-width:780px;overflow-wrap:anywhere}
+.tool-page h2{font-size:clamp(1.35rem,3.4vw,1.8rem);scroll-margin-top:105px}
+.tool-page .eyebrow{margin-bottom:18px}
+.tool-page a{overflow-wrap:anywhere;text-underline-offset:3px}
+.tool-page .button{text-decoration:none}
+.tool-page button.button{border:0;cursor:pointer;font-family:inherit;line-height:1.3}
+.tool-page .button.primary{max-width:100%;text-align:center}
+
+.tool-lead{margin-top:22px;font-size:1.12rem;line-height:1.6;color:var(--ink);max-width:720px}
+.tool-privacy-short{margin-top:18px;padding:14px 18px;border-left:4px solid var(--green);background:var(--pale);border-radius:0 8px 8px 0;font-size:.95rem;color:var(--ink);max-width:720px}
+.tool-noscript{margin-top:18px;padding:14px 18px;border-left:4px solid var(--orange);background:#fff5e7;border-radius:0 8px 8px 0;font-size:.95rem;color:var(--ink);max-width:720px}
+.tool-noscript a{color:var(--navy);font-weight:600}
+.tool-start{margin-top:26px}
+.tool-privacy{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:.85rem;line-height:1.6;max-width:720px}
+
+/* Etapas e perguntas */
+.tool{margin-top:12px}
+.tool-step{margin-top:44px}
+.tool-step:first-child{margin-top:28px}
+.tool-step h2{color:var(--navy);margin:0}
+.tool-step-desc{margin-top:6px;font-size:.95rem}
+
+.tool-question{border:0;border-top:1px solid var(--line);margin:22px 0 0;padding:22px 0 0;min-width:0}
+.tool-question legend{padding:0;margin-bottom:14px;font-size:1.08rem;font-weight:650;line-height:1.4;color:var(--ink);letter-spacing:-.01em}
+.tool-qnum{display:block;margin-bottom:4px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.tool-options{display:grid;gap:10px}
+.tool-option{display:flex;align-items:flex-start;gap:12px;min-height:52px;padding:13px 16px;background:var(--white);border:1px solid var(--line);border-radius:8px;color:var(--ink);font-size:.98rem;line-height:1.45;cursor:pointer}
+.tool-option:hover{border-color:var(--blue)}
+.tool-option input{flex-shrink:0;width:22px;height:22px;margin:1px 0 0;accent-color:var(--navy);cursor:pointer}
+.tool-option span{min-width:0;overflow-wrap:anywhere}
+.tool-option:has(input:checked){border-color:var(--navy);background:var(--pale);box-shadow:inset 0 0 0 1px var(--navy)}
+.tool-option:has(input:focus-visible){outline:3px solid var(--blue);outline-offset:2px}
+.tool-question.is-missing{border-left:4px solid var(--orange);padding-left:16px;background:#fff5e7;border-radius:0 8px 8px 0}
+.tool-missing{margin-top:12px;font-size:.92rem;font-weight:650;color:#7a4508}
+
+/* Ações e aviso */
+.tool-actions{margin-top:36px}
+.tool-alert{margin-top:18px;padding:14px 18px;border-left:4px solid var(--orange);background:#fff5e7;border-radius:0 8px 8px 0;font-size:.95rem;font-weight:600;color:#7a4508}
+
+/* Resultado */
+.tool-result:not(:empty){margin-top:48px;padding-top:36px;border-top:2px solid var(--navy)}
+.tool-result h2{color:var(--navy);margin:0}
+.tool-result:focus{outline:none}
+.tool-block+.tool-block,.tool-block+.cta-box{margin-top:36px}
+.tool-areas{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.tool-area{padding:16px 18px;background:var(--white);border:1px solid var(--line);border-radius:10px}
+.tool-area-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0;color:var(--ink)}
+.tool-area-name{flex:1 1 220px;min-width:0;font-weight:700;font-size:1.05rem;color:var(--navy)}
+.tool-area-note{margin:8px 0 0;font-size:.93rem;line-height:1.5}
+.tool-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Faixa: rótulo em texto + indicador de três marcas. Cores: laranja, azul, verde (nunca vermelho). */
+.tool-badge{display:inline-block;padding:4px 12px;border:1.5px solid;border-radius:30px;font-size:.88rem;font-weight:700;line-height:1.3}
+.tool-badge.is-atencao{background:#fff5e7;border-color:#b8680f;color:#7a4508}
+.tool-badge.is-evolucao{background:#eaf3fa;border-color:var(--blue);color:#1a4a6b}
+.tool-badge.is-organizado{background:#edf5ef;border-color:var(--green);color:#1e5a40}
+.tool-level{display:inline-flex;gap:5px;align-items:center}
+.tool-mark{width:16px;height:16px;border:2px solid #7d95a8;border-radius:4px;background:transparent}
+.tool-level.is-atencao .tool-mark:nth-child(-n+1){background:#b8680f;border-color:#b8680f}
+.tool-level.is-evolucao .tool-mark:nth-child(-n+2){background:var(--blue);border-color:var(--blue)}
+.tool-level.is-organizado .tool-mark{background:var(--green);border-color:var(--green)}
+
+.tool-note{margin-top:20px;font-size:.88rem;line-height:1.6}
+
+/* Destaque da pior área */
+.tool-highlight{padding:26px 28px;background:var(--pale);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px}
+.tool-highlight h2{color:var(--navy);margin:0 0 6px}
+.tool-facts{margin:0}
+.tool-fact{margin-top:18px}
+.tool-fact dt{font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue)}
+.tool-fact dd{margin:5px 0 0;font-size:1rem;line-height:1.6;color:var(--ink)}
+.tool-fact dd a{color:var(--navy);font-weight:650}
+
+/* CTA e refazer (o bloco .cta-box vem de styles.css) */
+.tool-result .cta-box{max-width:none}
+.tool-cta-privacy{margin:14px 0 0;font-size:.88rem;line-height:1.55;max-width:600px}
+.tool-restart{margin-top:32px}
+.tool-button-secondary{background:var(--white);color:var(--navy);border:2px solid var(--navy)!important}
+.tool-button-secondary:hover{background:var(--pale)}
+
+@media(max-width:800px){
+  .tool-page .tool-main{padding-block:28px 56px}
+  .tool-highlight{padding:20px 18px}
+  .tool-result:not(:empty){margin-top:40px;padding-top:28px}
+}
+@media(max-width:420px){
+  .tool-option{padding:12px 12px;gap:10px}
+  .tool-question.is-missing{padding-left:12px}
+  .tool-page .tool-start .button,.tool-page .tool-actions .button,.tool-page .tool-restart .button{width:100%}
+}

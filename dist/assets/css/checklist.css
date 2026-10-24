@@ -1,0 +1,81 @@
+/*
+ * Checklist de rotinas: lista de itens, contador do bloco de regularização e impressão.
+ * Carrega depois de styles.css e ferramentas.css (que não são editados aqui).
+ * Sem style="" no HTML (CSP): todo visual vem deste arquivo.
+ */
+
+.ck-secao{margin-top:48px}
+.ck-secao h2{color:var(--navy);margin:0}
+.ck-como ol,.ck-passos{margin:18px 0 0;padding-left:22px;display:grid;gap:10px;color:var(--ink);line-height:1.6;max-width:720px}
+.ck-como li::marker,.ck-passos li::marker{color:var(--blue);font-weight:700}
+.ck-subtitulo{margin-top:10px;font-size:1.02rem;line-height:1.5;color:var(--ink);font-weight:600}
+.ck-instrucao{margin-top:12px;color:var(--ink)}
+
+/* Botões */
+.ck-toolbar{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.ck-toolbar[hidden]{display:none}
+.ck-toolbar .button{flex:1 1 200px}
+
+/* Blocos */
+.ck-bloco{margin-top:48px}
+.ck-bloco h2{color:var(--navy);margin:0}
+.ck-lista{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;min-width:0}
+.ck-item{min-width:0;padding:14px 16px;background:var(--white);border:1px solid var(--line);border-radius:8px}
+.ck-item:has(.ck-box:checked){background:var(--pale);border-color:#b9cfdb}
+.ck-linha{display:flex;align-items:flex-start;gap:12px;min-width:0}
+.ck-box{flex-shrink:0;width:22px;height:22px;margin:2px 0 0;accent-color:var(--navy);cursor:pointer}
+.ck-linha label{min-width:0;color:var(--ink);line-height:1.45;cursor:pointer;overflow-wrap:anywhere}
+.ck-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:10px 0 0 34px;font-size:.88rem;line-height:1.4;color:var(--muted)}
+.ck-sugestao{font-weight:600;color:var(--blue)}
+.ck-link{color:var(--navy);font-weight:600;overflow-wrap:anywhere}
+/* Campo de responsável: escondido na tela (o responsável sugerido continua visível); vira linha em branco só na impressão */
+.ck-resp{display:none}
+
+/* Bloco de regularização: contagem e CTA */
+.rg-resultado{margin-top:24px;padding:18px 20px;background:var(--pale);border-left:4px solid var(--blue);border-radius:0 8px 8px 0}
+.rg-contagem{font-size:1.02rem;font-weight:700;line-height:1.4;color:var(--navy)}
+.rg-texto{margin-top:8px;font-size:.96rem;line-height:1.6;color:var(--ink)}
+.cta-box.rg-cta{margin-top:28px;max-width:none}
+.cta-box .cta-nota{margin-top:12px;font-size:.86rem;line-height:1.55;color:var(--muted);max-width:620px}
+.ck-nota{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:.88rem;line-height:1.6;color:var(--muted);max-width:720px}
+
+/* Apoio do CTA final */
+.ck-fim .cta-box{margin-top:48px}
+.ck-apoio{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.ck-apoio a{color:var(--navy);font-weight:600;overflow-wrap:anywhere}
+
+.ck-implantar{margin-top:56px}
+
+@media(max-width:800px){
+  .ck-bloco{margin-top:40px}
+}
+@media(max-width:420px){
+  .ck-item{padding:12px}
+  .ck-meta{margin-left:0}
+}
+
+/* Impressão: só o checklist, com caixas vazias e uma linha em branco para o responsável */
+@media print{
+  @page{margin:14mm 12mm}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.4}
+  .skip,.header,footer,.ck-como,.ck-toolbar,.ck-implantar,.ck-fim,.tool-privacy,.tool-noscript,
+  .tool-lead,.eyebrow,.rg-resultado,.rg-cta,.ck-link{display:none!important}
+  .tool-main{max-width:none;padding:0;margin:0;width:auto}
+  .tool-page h1{font-size:18pt;max-width:none;color:#000;margin:0 0 6pt}
+  .ck-bloco{margin-top:12pt;break-inside:auto}
+  .ck-bloco h2{font-size:13pt;color:#000;break-after:avoid}
+  .tool-alert{margin-top:6pt;padding:4pt 0;background:none;border:0;border-left:2pt solid #000;color:#000;font-size:10pt}
+  .ck-nota{color:#000;font-size:9pt;border-top:1pt solid #000}
+  .ck-lista{margin-top:6pt;gap:0}
+  .ck-item{border:0;border-bottom:.6pt solid #888;border-radius:0;background:none!important;padding:5pt 0;break-inside:avoid}
+  .ck-linha{gap:8pt}
+  .ck-linha label{color:#000;font-size:10.5pt}
+  .ck-box{-webkit-appearance:none;appearance:none;width:11pt;height:11pt;margin:1pt 0 0;border:1pt solid #000;border-radius:2pt;background:#fff}
+  .ck-meta{margin:3pt 0 0 19pt;font-size:9pt;color:#000}
+  .ck-sugestao{color:#000;font-weight:400}
+  .ck-resp{display:block;flex:1 1 auto;max-width:none;min-width:0}
+  .ck-resp input{display:block;width:100%;border:0;border-bottom:.8pt solid #000;border-radius:0;padding:0;min-height:0;background:none;font-size:9.5pt;color:#000}
+  .ck-resp input::placeholder{color:transparent}
+  .ck-item:has(.ck-box:checked){background:none!important;border-color:#888}
+  a[href]::after{content:none!important}
+}

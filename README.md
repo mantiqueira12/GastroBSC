@@ -10,7 +10,11 @@ Cada push na branch de produção pode gerar um deploy e consumir a cota gratuit
 
 ## Verificação local
 
-Com Node.js instalado: `node check-site.mjs`.
+Com Node.js instalado, na pasta `github_site_v1/`:
+
+- `node check-site.mjs`: links, metadados (título até 60 e descrição até 155 caracteres, canonical, Open Graph, 1 H1), sitemap, hash do JSON-LD e regras da CSP (sem `<script>` inline, `on*=`, `style="..."` nem recurso externo).
+- `node --test`: testes das ferramentas e do próprio `check-site.mjs` (em `tests/`). No Node 24, rode sem argumento; `node --test tests/` falha.
+- `node tests/serve-with-headers.mjs [porta]`: serve `dist/` com os cabeçalhos de `dist/_headers` (CSP real) para o QA no navegador. Não é usado no deploy.
 
 ## Domínio e e-mail
 
@@ -18,7 +22,7 @@ Domínio: gastrobsc.com.br. Adicionar raiz e www ao projeto Netlify antes de alt
 
 ## Escopo público
 
-Este repositório contém apenas a landing e seus ativos públicos. Documentação estratégica interna, dados de clientes e credenciais ficam fora dele. O SaaS será desenvolvido no projeto ProAPP conforme decisões próprias.
+Este repositório contém apenas a landing e seus ativos públicos. Documentação estratégica interna, dados de clientes e credenciais ficam fora dele. Plano atual do MVP do site: `11_mvp_site_captacao/ROADMAP.md`, na pasta de documentação, fora deste repositório.
 
 ## Retorno de versão
 

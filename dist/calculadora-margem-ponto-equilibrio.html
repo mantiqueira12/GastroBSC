@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ponto de equilíbrio de restaurante: calculadora | GastroBSC</title>
+<meta name="description" content="Calcule o ponto de equilíbrio do seu restaurante: informe faturamento, CMV e custos e veja a margem, o resultado do mês e quanto vender por dia.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#0C3158">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="GastroBSC">
+<meta property="og:title" content="Ponto de equilíbrio de restaurante: calculadora | GastroBSC">
+<meta property="og:description" content="Calcule o ponto de equilíbrio do seu restaurante: informe faturamento, CMV e custos e veja a margem, o resultado do mês e quanto vender por dia.">
+<meta property="og:url" content="https://gastrobsc.com.br/calculadora-margem-ponto-equilibrio.html">
+<meta property="og:image" content="https://gastrobsc.com.br/assets/social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="506">
+<meta property="og:image:alt" content="Logotipo GastroBSC com o lema Medir. Formar. Libertar.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ponto de equilíbrio de restaurante: calculadora | GastroBSC">
+<meta name="twitter:description" content="Calcule o ponto de equilíbrio do seu restaurante: informe faturamento, CMV e custos e veja a margem, o resultado do mês e quanto vender por dia.">
+<meta name="twitter:image" content="https://gastrobsc.com.br/assets/social.png">
+<meta name="twitter:image:alt" content="Logotipo GastroBSC com o lema Medir. Formar. Libertar.">
+<link rel="canonical" href="https://gastrobsc.com.br/calculadora-margem-ponto-equilibrio.html">
+<link rel="icon" href="assets/favicon.png" sizes="32x32"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/css/ferramentas.css"><link rel="stylesheet" href="assets/css/calculadora.css">
+</head><body class="tool-page calc-page">
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<header class="header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="GastroBSC, início"><img src="assets/logo.webp" alt="GastroBSC" width="300" height="90"></a><nav aria-label="Navegação principal"><a href="index.html">Início</a><a href="index.html#ferramentas">Ferramentas</a><a class="nav-contact" href="index.html#contato">Conversa gratuita <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="conteudo" class="wrap tool-main"><article aria-labelledby="titulo-ferramenta">
+<p class="eyebrow">Calculadora · Gestão financeira do restaurante</p>
+<h1 id="titulo-ferramenta">Meu restaurante dá lucro? Calcule o ponto de equilíbrio do restaurante</h1>
+<p class="tool-privacy-short">Ferramenta gratuita · Os cálculos acontecem no seu aparelho e nada é enviado ou guardado.</p>
+<p class="tool-lead">Fechar o mês com o caixa positivo não é o mesmo que ter lucro. Esta calculadora gratuita junta o que entra e o que sai do seu restaurante e mostra três coisas: quanto sobra de cada venda, se o mês deu lucro ou prejuízo e qual é o <strong>ponto de equilíbrio do restaurante</strong>, isto é, quanto você precisa vender para não perder dinheiro.</p>
+<p class="calc-intro">Preencha com os números do mês. O que você não souber, deixe em branco: campo vazio conta como zero. Tudo é calculado aqui, no seu navegador.</p>
+<noscript><p class="tool-noscript" role="note">O cálculo precisa de JavaScript, e ele está desativado neste navegador. Você pode ler a página, mas só verá o resultado com o JavaScript ativado. Se preferir, <a href="index.html#contato">fale com o Rafael pela página inicial</a>.</p></noscript>
+<h2 id="antes-de-comecar" class="calc-h2">Antes de começar</h2>
+<ul class="calc-list">
+<li>Use os números de <strong>um mês fechado</strong> (por exemplo, o último). Teste outros meses depois para comparar.</li>
+<li><strong>Inclua o seu pró-labore</strong>, isto é, o valor que você retira da empresa para viver. Sem ele, o resultado parece melhor do que é.</li>
+<li>Não sabe o CMV do mês? O <a href="ficha-tecnica-prato-custo-cmv.html">guia de ficha técnica e CMV</a> mostra como calcular.</li>
+</ul>
+<h2 id="numeros-do-mes" class="calc-h2">Os números do seu mês</h2>
+<div id="calculadora" class="tool calc">
+<fieldset class="calc-group"><legend>Vendas</legend>
+<div class="calc-field"><label class="calc-label" for="faturamento">Faturamento do mês<span class="tool-sr"> (em reais)</span></label><div class="calc-input"><span class="calc-unit" aria-hidden="true">R$</span><input type="text" inputmode="decimal" autocomplete="off" id="faturamento" placeholder="0,00" aria-describedby="ajuda-faturamento erro-faturamento"></div><p class="calc-help" id="ajuda-faturamento">Tudo o que entrou em vendas no mês, antes de descontar custos. Use o total do caixa ou do sistema de vendas.</p><p class="calc-error" id="erro-faturamento" hidden></p></div>
+</fieldset>
+<fieldset class="calc-group"><legend>Custo das mercadorias (CMV)</legend>
+<div class="calc-mode" role="radiogroup" aria-labelledby="cmv-modo-titulo" aria-describedby="cmv-modo-ajuda"><p class="calc-label" id="cmv-modo-titulo">Como você prefere informar o CMV?</p><div class="tool-options calc-options"><label class="tool-option"><input type="radio" name="cmvModo" id="cmv-modo-valor" value="valor" checked autocomplete="off"><span>Em R$ (valor do mês)</span></label><label class="tool-option"><input type="radio" name="cmvModo" id="cmv-modo-percentual" value="percentual" autocomplete="off"><span>Em % do faturamento</span></label></div><p class="calc-help" id="cmv-modo-ajuda">Escolha uma das duas formas.</p></div>
+<div class="calc-field"><label class="calc-label" for="cmv"><span id="cmv-rotulo">CMV do mês (R$)</span><span class="tool-sr" id="cmv-leitor"> (em reais)</span></label><div class="calc-input"><span class="calc-unit" id="cmv-unidade-reais" aria-hidden="true">R$</span><input type="text" inputmode="decimal" autocomplete="off" id="cmv" placeholder="0,00" aria-describedby="ajuda-cmv erro-cmv"><span class="calc-unit" id="cmv-unidade-pct" aria-hidden="true" hidden>%</span></div><p class="calc-help" id="ajuda-cmv">Custo das mercadorias vendidas: estoque inicial + compras − estoque final. O <a href="ficha-tecnica-prato-custo-cmv.html">guia</a> explica a conta.</p><p class="calc-error" id="erro-cmv" hidden></p></div>
+</fieldset>
+<fieldset class="calc-group"><legend>Custos fixos do mês</legend><p class="calc-group-desc">Os que você paga mesmo se vender menos.</p>
+<div class="calc-grid"><div class="calc-field"><label class="calc-label" for="aluguel">Aluguel<span class="tool-sr"> (em reais)</span></label><div class="calc-input"><span class="calc-unit" aria-hidden="true">R$</span><input type="text" inputmode="decimal" autocomplete="off" id="aluguel" placeholder="0,00" aria-describedby="ajuda-aluguel erro-aluguel"></div><p class="calc-help" id="ajuda-aluguel">Aluguel do mês. Inclua condomínio e IPTU se for você quem paga.</p><p class="calc-error" id="erro-aluguel" hidden></p></div><div class="calc-field"><label class="calc-label" for="folha">Folha de pagamento com encargos<span class="tool-sr"> (em reais)</span></label><div class="calc-input"><span class="calc-unit" aria-hidden="true">R$</span><input type="text" inputmode="decimal" autocomplete="off" id="folha" placeholder="0,00" aria-describedby="ajuda-folha erro-folha"></div><p class="calc-help" id="ajuda-folha">Salários da equipe mais os encargos (FGTS, INSS, 13º e férias divididos por mês) e benefícios.</p><p class="calc-error" id="erro-folha" hidden></p></div><div class="calc-field"><label class="calc-label" for="contas">Contas<span class="tool-sr"> (em reais)</span></label><div class="calc-input"><span class="calc-unit" aria-hidden="true">R$</span><input type="text" inputmode="decimal" autocomplete="off" id="contas" placeholder="0,00" aria-describedby="ajuda-contas erro-contas"></div><p class="calc-help" id="ajuda-contas">Água, luz, gás, internet e telefone.</p><p class="calc-error" id="erro-contas" hidden></p></div><div class="calc-field"><label class="calc-label" for="prolabore">Pró-labore<span class="tool-sr"> (em reais)</span></label><div class="calc-input"><span class="calc-unit" aria-hidden="true">R$</span><input type="text" inputmode="decimal" autocomplete="off" id="prolabore" placeholder="0,00" aria-describedby="ajuda-prolabore erro-prolabore"></div><p class="calc-help" id="ajuda-prolabore">O que você retira da empresa para viver. Sem ele, o resultado parece melhor do que é.</p><p class="calc-error" id="erro-prolabore" hidden></p></div><div class="calc-field"><label class="calc-label" for="outrosFixos">Outros custos fixos<span class="tool-sr"> (em reais)</span></label><div class="calc-input"><span class="calc-unit" aria-hidden="true">R$</span><input type="text" inputmode="decimal" autocomplete="off" id="outrosFixos" placeholder="0,00" aria-describedby="ajuda-outrosFixos erro-outrosFixos"></div><p class="calc-help" id="ajuda-outrosFixos">Contabilidade, sistema de gestão, manutenção, marketing, seguros e outros que se repetem todo mês.</p><p class="calc-error" id="erro-outrosFixos" hidden></p></div></div>
+</fieldset>
+<fieldset class="calc-group"><legend>Custos que variam com a venda</legend><p class="calc-group-desc">Descontados de cada real vendido, além do CMV.</p>
+<div class="calc-grid"><div class="calc-field"><label class="calc-label" for="taxas">Taxas de cartão e de aplicativo<span class="tool-sr"> (em % do faturamento)</span></label><div class="calc-input"><input type="text" inputmode="decimal" autocomplete="off" id="taxas" placeholder="0,00" aria-describedby="ajuda-taxas erro-taxas"><span class="calc-unit" aria-hidden="true">%</span></div><p class="calc-help" id="ajuda-taxas">Quanto as maquininhas e os aplicativos de delivery cobram sobre as vendas, em % do faturamento. Não sabe? Some as taxas do mês, divida pelo faturamento e multiplique por 100.</p><p class="calc-error" id="erro-taxas" hidden></p></div><div class="calc-field"><label class="calc-label" for="embalagens">Embalagens e descartáveis<span class="tool-sr"> (em % do faturamento)</span></label><div class="calc-input"><input type="text" inputmode="decimal" autocomplete="off" id="embalagens" placeholder="0,00" aria-describedby="ajuda-embalagens erro-embalagens"><span class="calc-unit" aria-hidden="true">%</span></div><p class="calc-help" id="ajuda-embalagens">Custo das embalagens usadas nas vendas, em % do faturamento.</p><p class="calc-error" id="erro-embalagens" hidden></p></div><div class="calc-field"><label class="calc-label" for="impostos">Impostos sobre a venda<span class="tool-sr"> (em % do faturamento)</span></label><div class="calc-input"><input type="text" inputmode="decimal" autocomplete="off" id="impostos" placeholder="0,00" aria-describedby="ajuda-impostos erro-impostos"><span class="calc-unit" aria-hidden="true">%</span></div><p class="calc-help" id="ajuda-impostos">Percentual do faturamento que sai em impostos, conforme o seu regime. O contador informa.</p><p class="calc-error" id="erro-impostos" hidden></p></div></div>
+</fieldset>
+<fieldset class="calc-group"><legend>Funcionamento</legend>
+<div class="calc-field"><label class="calc-label" for="dias">Dias abertos no mês<span class="tool-sr"> (de 0 a 31)</span></label><div class="calc-input"><input type="text" inputmode="decimal" autocomplete="off" id="dias" placeholder="0" aria-describedby="ajuda-dias erro-dias"><span class="calc-unit" aria-hidden="true">dias</span></div><p class="calc-help" id="ajuda-dias">Quantos dias o restaurante abriu. Serve para calcular o valor por dia. Pode deixar em branco.</p><p class="calc-error" id="erro-dias" hidden></p></div>
+</fieldset>
+<div id="calc-acoes" class="tool-actions calc-actions" hidden><button type="button" class="button primary" id="calc-calcular">Calcular</button><button type="button" class="button tool-button-secondary" id="calc-limpar">Limpar</button></div>
+<div id="resultado" class="tool-result calc-result" aria-live="polite"></div>
+</div>
+<p class="calc-disclaimer">Estimativa simplificada; não substitui a contabilidade.</p>
+<section class="calc-limits" aria-labelledby="nao-mostra"><h2 id="nao-mostra">O que esta conta não mostra</h2>
+<p>A calculadora responde se o mês deu lucro e quanto você precisa vender para empatar. Ela não diz o que fazer com isso. Ficam três perguntas sem resposta:</p>
+<ul class="calc-list">
+<li><strong>Qual custo pesa mais no seu caso.</strong> A conta soma aluguel, equipe, mercadoria, taxas e o resto, mas não mostra qual desses itens está puxando o seu resultado para baixo.</li>
+<li><strong>Quanto cada ajuste mudaria o resultado.</strong> Preço, CMV, custos fixos, equipe e desperdício mexem no resultado em tamanhos bem diferentes, e alguns ajustes custam mais esforço do que devolvem. Esta conta não separa um do outro.</li>
+<li><strong>O plano e a ordem para chegar ao equilíbrio.</strong> Mexer em tudo ao mesmo tempo cansa a equipe e dificulta saber o que funcionou. O que decide o resultado é saber qual alavanca mexer primeiro e quanto cada uma muda.</li>
+</ul>
+<p class="calc-limits-close">É isso que eu monto com você na conversa de diagnóstico gratuita (30 min, online).</p></section>
+<div class="cta-box"><h2 class="cta-title">Vamos descobrir qual ajuste mexer primeiro no seu restaurante?</h2><p class="cta-text">Na conversa de diagnóstico gratuita (30 min, online), eu olho os seus números com você, mostro qual custo pesa mais e por onde começar. Sem compromisso.</p><div class="cta-actions"><a class="button primary" href="https://wa.me/5512997710040?text=Ol%C3%A1%2C%20Rafael.%20Usei%20a%20calculadora%20de%20lucro%20no%20site%20da%20GastroBSC%20e%20quero%20entender%20o%20que%20posso%20ajustar%20no%20meu%20restaurante.%20Podemos%20fazer%20a%20conversa%20de%20diagn%C3%B3stico%20gratuita%3F" target="_blank" rel="noopener noreferrer">Começar a conversa no WhatsApp <span aria-hidden="true">↗</span></a></div><p class="cta-alt">ou escreva para <a href="mailto:rafael.jacob@gastrobsc.com.br">rafael.jacob@gastrobsc.com.br</a></p><p class="cta-alt">Base em Campos do Jordão/SP · atendimento num raio de ~100 km e online.</p></div>
+<section class="calc-section" aria-labelledby="como-a-conta-e-feita"><h2 id="como-a-conta-e-feita">Como a conta é feita</h2>
+<p><strong>Margem de contribuição</strong> é o que sobra de cada venda depois de pagar o CMV e os custos que variam com ela (taxas de cartão e de aplicativo, embalagens e impostos sobre a venda). É esse dinheiro que paga os custos fixos e, se sobrar, vira lucro.</p>
+<p><strong>Resultado do mês</strong> é a margem de contribuição menos os custos fixos. Se for positivo, é lucro; se for negativo, prejuízo.</p>
+<p><strong>Ponto de equilíbrio</strong> é o faturamento em que a margem de contribuição cobre exatamente os custos fixos: nem lucro, nem prejuízo. A conta é: custos fixos ÷ (margem de contribuição ÷ faturamento). O valor por dia é o ponto de equilíbrio do mês dividido pelos dias abertos, ou seja, uma média por dia aberto.</p>
+<p>Exemplo fictício, só para conferir a conta: faturamento de R$ 100.000,00; CMV de R$ 32.000,00; custos que variam com a venda de 12% (R$ 12.000,00); custos fixos de R$ 47.000,00. A margem de contribuição é R$ 56.000,00 (56%) e o resultado do mês é R$ 9.000,00. O ponto de equilíbrio é R$ 47.000,00 ÷ 0,56 = R$ 83.928,57 por mês. Em 26 dias abertos, isso dá R$ 3.228,02 por dia. Os valores são inventados e não representam nenhum restaurante nem referência de mercado.</p></section>
+<section class="calc-section" aria-labelledby="limites-da-conta"><h2 id="limites-da-conta">Limites da conta</h2>
+<ul class="calc-list">
+<li>Trata o CMV e os custos em % como proporcionais às vendas e os custos fixos como constantes. No restaurante real, o mês varia.</li>
+<li>O ponto de equilíbrio por dia é uma média: sexta e sábado costumam vender diferente de terça, e a conta não separa os dias.</li>
+<li>Não considera investimentos, financiamentos, estoque parado nem sazonalidade. Para decisões de preço, tributos ou contratação, converse também com o seu contador.</li>
+</ul></section>
+<section class="calc-section calc-faq" aria-labelledby="perguntas-frequentes"><h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+<h3>O que entra nos custos fixos e nos que variam com a venda?</h3>
+<p>Fixo é o que você paga mesmo vendendo menos, como aluguel, folha da equipe, contas e pró-labore. Variável é o que cresce junto com as vendas, como taxas de cartão e de aplicativo, embalagens e impostos sobre o faturamento. O CMV também varia com a venda e tem campo próprio.</p>
+<h3>Qual é o CMV ideal para um restaurante?</h3>
+<p>Não existe um número único: depende do tipo de negócio e de como ele opera. Por isso esta calculadora não compara você com uma média de mercado. Ela mostra a conta da sua operação com os seus números.</p>
+<h3>Por que o ponto de equilíbrio não aparece?</h3>
+<p>Quando a margem de contribuição é zero ou negativa, cada venda não deixa nada para pagar os custos fixos. Vender mais não resolve enquanto a conta de cada venda for essa, e por isso o ponto de equilíbrio não existe. Confira o CMV, as taxas e os impostos informados.</p>
+<h3>Posso usar o faturamento de um mês fraco ou de um mês forte?</h3>
+<p>Pode, e vale testar os dois. O resultado vale para o mês informado. O ponto de equilíbrio muda quando mudam os custos fixos ou a margem.</p>
+<h3>Meus dados ficam salvos?</h3>
+<p>Não. A conta é feita no seu aparelho e nada é enviado nem guardado. Ao fechar a página, os números somem.</p></section>
+<div class="cta-box"><h2 class="cta-title">Vamos descobrir qual ajuste mexer primeiro no seu restaurante?</h2><p class="cta-text">Na conversa de diagnóstico gratuita (30 min, online), eu olho os seus números com você, mostro qual custo pesa mais e por onde começar. Sem compromisso.</p><div class="cta-actions"><a class="button primary" href="https://wa.me/5512997710040?text=Ol%C3%A1%2C%20Rafael.%20Usei%20a%20calculadora%20de%20lucro%20no%20site%20da%20GastroBSC%20e%20quero%20entender%20o%20que%20posso%20ajustar%20no%20meu%20restaurante.%20Podemos%20fazer%20a%20conversa%20de%20diagn%C3%B3stico%20gratuita%3F" target="_blank" rel="noopener noreferrer">Começar a conversa no WhatsApp <span aria-hidden="true">↗</span></a></div><p class="cta-alt">ou escreva para <a href="mailto:rafael.jacob@gastrobsc.com.br">rafael.jacob@gastrobsc.com.br</a></p></div>
+<section class="calc-section calc-related" aria-labelledby="leia-tambem"><h2 id="leia-tambem">Leia também</h2>
+<ul class="calc-list">
+<li><a href="ficha-tecnica-prato-custo-cmv.html">Ficha técnica de prato: custo por porção e CMV</a></li>
+<li><a href="autodiagnostico-restaurante.html">Autodiagnóstico do restaurante: onde você está travando</a></li>
+<li><a href="checklist-rotinas-restaurante.html">Checklist de rotinas do restaurante</a></li>
+</ul></section>
+<p class="calc-disclaimer">Estimativa simplificada; não substitui a contabilidade.</p>
+<p class="tool-privacy">Os cálculos acontecem no seu navegador. Nenhum número digitado é enviado ou guardado.</p>
+</article></main><footer><div class="wrap footer-inner"><a class="brand" href="index.html"><img src="assets/logo.webp" alt="GastroBSC" width="200" height="60" loading="lazy"></a><p>© 2026 GastroBSC · Consultoria para restaurantes.</p><a href="privacidade.html">Privacidade</a><p class="footer-region">Base em Campos do Jordão/SP · atendimento num raio de ~100 km e online</p></div></footer>
+<script src="assets/js/calculadora-calc.js" defer></script>
+<script src="assets/js/calculadora-textos.js" defer></script>
+<script src="assets/js/calculadora.js" defer></script>
+</body></html>

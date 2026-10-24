@@ -1,0 +1,97 @@
+/*
+ * Estilos só da calculadora (campos, cartões de resultado, blocos de texto).
+ * Carrega depois de styles.css e de ferramentas.css e usa as variáveis de styles.css
+ * (--navy, --ink, --blue, --green, --orange, --muted, --line, --pale, --white).
+ * Sem style="" no HTML (CSP). Regra de marca: nenhuma cor vermelha; erro de campo e aviso
+ * usam laranja escuro + texto + borda, nunca só a cor.
+ */
+
+.calc-page .calc-intro{margin-top:14px;max-width:720px;font-size:1.02rem;line-height:1.6}
+.calc-page .calc-h2{margin-top:44px;color:var(--navy)}
+.calc-page .calc-list{margin:14px 0 0;padding-left:22px;max-width:720px;color:var(--muted)}
+.calc-page .calc-list li{margin-top:8px;line-height:1.6}
+.calc-page .calc-list strong{color:var(--ink)}
+.calc-page .calc-list a{color:var(--navy);font-weight:600}
+
+/* Grupos e campos */
+.calc{margin-top:20px}
+.calc-group{border:0;border-top:1px solid var(--line);margin:30px 0 0;padding:22px 0 0;min-width:0}
+.calc-group:first-child{margin-top:0;border-top:0;padding-top:0}
+.calc-group legend{float:left;width:100%;padding:0;margin-bottom:6px;font-size:1.15rem;font-weight:700;letter-spacing:-.01em;color:var(--navy)}
+.calc-group legend+*{clear:both}
+.calc-group::after{content:"";display:table;clear:both}
+.calc-group-desc{margin:0 0 6px;font-size:.95rem}
+.calc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 32px}
+.calc-field{margin-top:18px;min-width:0}
+.calc-label{display:block;margin:0 0 6px;font-size:.98rem;font-weight:650;line-height:1.4;color:var(--ink)}
+.calc-input{display:flex;align-items:stretch;max-width:320px;background:var(--white);border:1px solid #7d95a8;border-radius:8px;overflow:hidden}
+.calc-input:focus-within{border-color:var(--navy);box-shadow:0 0 0 2px var(--blue)}
+.calc-input input{flex:1 1 auto;min-width:0;width:100%;min-height:48px;padding:10px 14px;border:0;background:transparent;font:inherit;font-size:1.05rem;color:var(--ink)}
+.calc-input input:focus,.calc-input input:focus-visible{outline:none}
+.calc-input input::placeholder{color:#6b7f90;opacity:1}
+.calc-unit{display:flex;align-items:center;padding:0 14px;background:var(--pale);color:var(--navy);font-weight:700;font-size:.95rem;white-space:nowrap}
+.calc-unit:first-child{border-right:1px solid var(--line)}
+.calc-unit:last-child{border-left:1px solid var(--line)}
+.calc-help{margin:7px 0 0;font-size:.88rem;line-height:1.5;max-width:560px}
+.calc-help a{color:var(--navy);font-weight:600}
+.calc-error{margin:8px 0 0;padding:8px 12px;border-left:4px solid var(--orange);background:#fff5e7;border-radius:0 6px 6px 0;font-size:.9rem;font-weight:650;line-height:1.4;color:#7a4508;max-width:560px}
+.calc-input:has(input[aria-invalid="true"]){border:2px solid #b8680f}
+.calc-mode{margin-top:6px}
+.calc-options{max-width:520px}
+
+/* Botões */
+.calc-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* Resultado */
+.calc-result{scroll-margin-top:105px}
+.calc-result-title{margin:0 0 6px;color:var(--navy)}
+.calc-orient{margin:0;font-size:1.12rem;font-weight:650;line-height:1.5;color:var(--navy)}
+.calc-orient-convite{margin:12px 0 0;max-width:640px}
+.calc-cards{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.calc-card{padding:18px 20px;background:var(--white);border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:10px;min-width:0}
+.calc-card-label{margin:0;font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue)}
+.calc-card-value{margin:8px 0 0;font-size:1.55rem;font-weight:750;letter-spacing:-.02em;line-height:1.25;color:var(--navy);overflow-wrap:anywhere}
+.calc-card-pct{font-size:1rem;font-weight:650;color:var(--ink)}
+.calc-card-tag{display:inline-block;margin-left:4px;padding:2px 10px;border:1.5px solid var(--navy);border-radius:30px;font-size:.8rem;font-weight:700;letter-spacing:0;vertical-align:middle;color:var(--navy);background:var(--pale)}
+.calc-card-help{margin:8px 0 0;font-size:.88rem;line-height:1.5}
+.calc-headline{margin:26px 0 0;padding:20px 24px;background:var(--pale);border-left:4px solid var(--green);border-radius:0 10px 10px 0;font-size:1.25rem;line-height:1.45;color:var(--navy)}
+.calc-headline strong{font-weight:750}
+.calc-interp{margin-top:26px}
+.calc-interp h3{margin:0 0 10px;font-size:1.4rem;color:var(--navy)}
+.calc-interp p{margin-top:12px;line-height:1.6;color:var(--ink)}
+.calc-interp p:first-of-type{margin-top:0}
+.calc-interp strong{color:var(--navy)}
+.calc-interp-link a{color:var(--navy);font-weight:650}
+.calc-prolabore{margin-top:22px}
+
+/* Aviso e blocos de texto */
+.calc-disclaimer{margin-top:26px;padding:12px 18px;border-left:4px solid var(--blue);background:var(--pale);border-radius:0 8px 8px 0;font-size:.95rem;font-weight:600;color:var(--ink);max-width:720px}
+.calc-limits{margin-top:40px;padding:28px 30px;background:var(--pale);border:1px solid var(--line);border-radius:10px}
+.calc-limits h2{margin:0;color:var(--navy)}
+.calc-limits>p{margin-top:14px;color:var(--ink);line-height:1.6}
+.calc-limits .calc-list{color:var(--ink)}
+.calc-limits-close{font-weight:650}
+.calc-section{margin-top:56px;max-width:720px}
+.calc-section h2{color:var(--navy);margin:0 0 14px}
+.calc-section p{margin-top:12px;line-height:1.65}
+.calc-section p strong{color:var(--ink)}
+.calc-faq h3{margin:22px 0 0;font-size:1.08rem;letter-spacing:-.01em;color:var(--navy)}
+.calc-faq h3+p{margin-top:6px}
+
+/* Rodapé: região */
+.calc-page .footer-inner{flex-wrap:wrap}
+.calc-page .footer-inner .footer-region{order:4;flex-basis:100%}
+
+@media(max-width:800px){
+  .calc-grid{grid-template-columns:minmax(0,1fr)}
+  .calc-cards{grid-template-columns:minmax(0,1fr)}
+  .calc-limits{padding:22px 18px}
+  .calc-section{margin-top:44px}
+}
+@media(max-width:420px){
+  .calc-input{max-width:none}
+  .calc-card{padding:16px 16px}
+  .calc-card-value{font-size:1.4rem}
+  .calc-headline{padding:16px 16px;font-size:1.12rem}
+  .calc-actions .button{width:100%}
+}
