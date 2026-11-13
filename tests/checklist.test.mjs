@@ -78,6 +78,6 @@ test('podeLimpar trata confirm indisponível ou com erro como confirmado', () =>
 
 test('a página não tem style inline, script inline nem handlers inline (CSP)', () => {
   assert.equal(/\sstyle=/i.test(html), false);
-  assert.equal(/<script(?![^>]*\bsrc=)/i.test(html), false);
+  assert.equal(/<script(?![^>]*\bsrc=)(?![^>]*application\/ld\+json)/i.test(html), false);
   assert.equal(/\son[a-z]+=/i.test(html), false);
 });

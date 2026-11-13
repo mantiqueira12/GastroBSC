@@ -13,6 +13,8 @@ Cada push na branch de produção pode gerar um deploy e consumir a cota gratuit
 Com Node.js instalado, na pasta `github_site_v1/`:
 
 - `node check-site.mjs`: links, metadados (título até 60 e descrição até 155 caracteres, canonical, Open Graph, 1 H1), sitemap, hash do JSON-LD e regras da CSP (sem `<script>` inline, `on*=`, `style="..."` nem recurso externo).
+- `node update-csp-hashes.mjs`: recalcula na CSP de `dist/_headers` os hashes dos blocos JSON-LD (um por página indexável). Rode sempre que alterar um `<script type="application/ld+json">`; o `check-site.mjs` falha se o hash não estiver na CSP.
+- URLs canônicas, `og:url` e sitemap usam o endereço **sem `.html`** (é a forma que o Netlify publica nos links internos). Os `href` no código continuam com `.html`, para as prévias offline funcionarem.
 - `node --test`: testes das ferramentas e do próprio `check-site.mjs` (em `tests/`). No Node 24, rode sem argumento; `node --test tests/` falha.
 - `node tests/serve-with-headers.mjs [porta]`: serve `dist/` com os cabeçalhos de `dist/_headers` (CSP real) para o QA no navegador. Não é usado no deploy.
 

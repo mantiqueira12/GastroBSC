@@ -14,7 +14,9 @@ const html = fs.readFileSync('dist/index.html', 'utf8');
 const script = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
 if (!script) fail('Organization JSON-LD missing');
 JSON.parse(script);
-const hash = 'sha256-' + crypto.createHash('sha256').update(script).digest('base64');
+if (!/"Organization"/.test(script)) fail('Organization JSON-LD missing');
+const sha = text => 'sha256-' + crypto.createHash('sha256').update(text).digest('base64');
+const hash = sha(script);
 const currentHeaders = fs.readFileSync('dist/_headers', 'utf8');
 if (!/'sha256-[^']+'/.test(currentHeaders)) fail('CSP hash slot missing');
 if (!currentHeaders.includes("'" + hash + "'")) fail('Organization JSON-LD hash differs from CSP');
@@ -44,7 +46,8 @@ for (const page of pages) {
   }
   if (/PLACEHOLDER|XXXXXXXX|\[REQUER/.test(content)) fail('Placeholder in ' + page);
 
-  // CSP: scripts. Só <script src="local" defer>; o único inline permitido é o JSON-LD da home (hash conferido acima).
+  // CSP: scripts. Só <script src="local" defer>; o único inline permitido é um bloco JSON-LD por página,
+  // válido e com o hash na CSP de dist/_headers (atualize com: node update-csp-hashes.mjs).
   let ldJsonCount = 0;
   for (const match of content.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
     const attrs = match[1];
@@ -53,13 +56,15 @@ for (const page of pages) {
       if (isExternal(src) || src.startsWith('data:')) fail('External script src in ' + page + ': ' + src);
       if (!/\bdefer\b/i.test(attrs)) fail('Script without defer in ' + page + ': ' + src);
       if (match[2].trim()) fail('Script with src and inline body in ' + page);
-    } else if (page === 'index.html' && /type="application\/ld\+json"/i.test(attrs)) {
+    } else if (/type="application\/ld\+json"/i.test(attrs)) {
       ldJsonCount += 1;
+      try { JSON.parse(match[2]); } catch { fail('Invalid JSON-LD in ' + page); }
+      if (!currentHeaders.includes("'" + sha(match[2]) + "'")) fail('JSON-LD hash of ' + page + ' missing from CSP (run node update-csp-hashes.mjs)');
     } else {
       fail('Inline <script> without src in ' + page);
     }
   }
-  if (ldJsonCount > 1 || (ldJsonCount === 1 && page !== 'index.html')) fail('Unexpected JSON-LD in ' + page);
+  if (ldJsonCount > 1) fail('More than one JSON-LD block in ' + page);
   if ((content.match(/<script\b/gi) || []).length !== (content.match(/<\/script>/gi) || []).length) fail('Unbalanced <script> in ' + page);
 
   // CSP: tags e atributos (fora de comentários e do conteúdo de <script>).
@@ -104,7 +109,8 @@ for (const page of pages) {
   seenDescriptions.set(description, page);
   if ((content.match(/<h1\b/g) || []).length !== 1) fail('Expected exactly one h1 in ' + page);
   if (/noindex/i.test(robots)) continue;
-  const expectedUrl = page === 'index.html' ? 'https://gastrobsc.com.br/' : 'https://gastrobsc.com.br/' + page;
+  // URL canônica sem ".html": é a forma que o Netlify (Pretty URLs) usa nos links internos publicados.
+  const expectedUrl = page === 'index.html' ? 'https://gastrobsc.com.br/' : 'https://gastrobsc.com.br/' + page.replace(/\.html$/, '');
   if (canonical !== expectedUrl) fail('Canonical of ' + page + ' must be ' + expectedUrl);
   if (ogUrl !== expectedUrl) fail('og:url of ' + page + ' must be ' + expectedUrl);
   if (ogTitle !== title) fail('og:title differs from title in ' + page);
@@ -142,9 +148,9 @@ for (const file of cssFiles) {
 // Guia CMV.
 const guide = fs.readFileSync('dist/ficha-tecnica-prato-custo-cmv.html', 'utf8');
 if (!guide.includes('name="robots" content="index,follow"')) fail('Approved guide must allow indexing');
-if (!guide.includes('rel="canonical" href="https://gastrobsc.com.br/ficha-tecnica-prato-custo-cmv.html"')) fail('Guide canonical missing');
+if (!guide.includes('rel="canonical" href="https://gastrobsc.com.br/ficha-tecnica-prato-custo-cmv"')) fail('Guide canonical missing');
 if (/Rascunho em revisão editorial/.test(guide)) fail('Draft notice remains in approved guide');
-if (!sitemap.includes('https://gastrobsc.com.br/ficha-tecnica-prato-custo-cmv.html')) fail('Approved guide missing from sitemap');
+if (!sitemap.includes('https://gastrobsc.com.br/ficha-tecnica-prato-custo-cmv<')) fail('Approved guide missing from sitemap');
 if (/Controle editorial|autoria_sugerida|rascunho_para_revisao_de_Rafael/.test(guide)) fail('Private editorial metadata leaked');
 
 // Home.

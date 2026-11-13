@@ -433,11 +433,11 @@ test('página: CSP (sem script inline, style, evento ou formulário) e scripts c
   assert.ok(!/\son\w+=/i.test(pagina), 'handler inline');
   assert.ok(!/<form\b/i.test(pagina), 'form');
   assert.ok(!/<(iframe|object|embed)\b/i.test(pagina));
-  const scripts = [...pagina.matchAll(/<script\b[^>]*>/gi)].map((m) => m[0]);
+  const scripts = [...pagina.matchAll(/<script\b[^>]*>/gi)].map((m) => m[0]).filter((s) => s !== '<script type="application/ld+json">');
   assert.deepEqual(scripts, ARQUIVOS_JS.map((a) => `<script src="${a}" defer>`));
-  assert.ok(!/<script\b[^>]*>\s*\S/.test(pagina.replace(/<script\b[^>]*><\/script>/g, '')));
+  assert.ok(!/<script\b[^>]*>\s*\S/.test(pagina.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '').replace(/<script\b[^>]*><\/script>/g, '')));
   for (const href of [...pagina.matchAll(/(?:src|href)="([^"]+)"/g)].map((m) => m[1])) {
-    if (/^(https:\/\/wa\.me\/|mailto:|https:\/\/gastrobsc\.com\.br\/)/.test(href)) continue;
+    if (/^(https:\/\/wa\.me\/|mailto:|https:\/\/gastrobsc\.com\.br\/|https:\/\/www\.linkedin\.com\/in\/rafael-jacob-b7342932\/$)/.test(href)) continue;
     assert.ok(!/^[a-z][a-z0-9+.-]*:|^\/\//i.test(href), 'recurso externo: ' + href);
   }
 });
@@ -445,7 +445,7 @@ test('página: CSP (sem script inline, style, evento ou formulário) e scripts c
 test('SEO: título, descrição, canonical, Open Graph e um único H1', () => {
   const titulo = 'Ponto de equilíbrio de restaurante: calculadora | GastroBSC';
   const descricao = 'Calcule o ponto de equilíbrio do seu restaurante: informe faturamento, CMV e custos e veja a margem, o resultado do mês e quanto vender por dia.';
-  const url = 'https://gastrobsc.com.br/calculadora-margem-ponto-equilibrio.html';
+  const url = 'https://gastrobsc.com.br/calculadora-margem-ponto-equilibrio';
   assert.equal(titulo.length, 59);
   assert.equal(descricao.length, 144);
   assert.ok(pagina.includes(`<title>${titulo}</title>`));
@@ -459,7 +459,8 @@ test('SEO: título, descrição, canonical, Open Graph e um único H1', () => {
   ]) assert.ok(pagina.includes(meta), meta);
   assert.equal((pagina.match(/<h1\b/g) || []).length, 1);
   assert.ok(pagina.includes('>Meu restaurante dá lucro? Calcule o ponto de equilíbrio do restaurante</h1>'));
-  assert.ok(!/application\/ld\+json/.test(pagina), 'sem JSON-LD');
+  assert.equal((pagina.match(/application\/ld\+json/g) || []).length, 1, 'um bloco JSON-LD');
+  assert.ok(/"@type":"FAQPage"/.test(pagina) && /"@type":"WebApplication"/.test(pagina), 'JSON-LD com FAQPage e WebApplication');
   assert.ok(pagina.includes('Ferramenta gratuita · Os cálculos acontecem no seu aparelho e nada é enviado ou guardado.'));
 });
 
@@ -517,7 +518,7 @@ test('página: header "Conversa gratuita", rodapé com região, links permitidos
   assert.ok(pagina.includes('<a class="nav-contact" href="index.html#contato">Conversa gratuita <span aria-hidden="true">↗</span></a>'));
   assert.ok(pagina.includes('<p class="footer-region">Base em Campos do Jordão/SP · atendimento num raio de ~100 km e online</p>'));
   const internos = new Set([...pagina.matchAll(/href="([^"#:]+\.html)(?:#[^"]*)?"/g)].map((m) => m[1]));
-  assert.deepEqual([...internos].sort(), ['autodiagnostico-restaurante.html', 'checklist-rotinas-restaurante.html', 'ficha-tecnica-prato-custo-cmv.html', 'index.html', 'privacidade.html']);
+  assert.deepEqual([...internos].sort(), ['autodiagnostico-restaurante.html', 'checklist-rotinas-restaurante.html', 'conversa-gratuita.html', 'ficha-tecnica-prato-custo-cmv.html', 'index.html', 'privacidade.html']);
   assert.ok(!/R\$ ?\d[\d.]*,\d\d[^.]*(por mês|\/mês) de (assinatura|plano)/i.test(pagina));
   assert.ok(!/vitalício|benchmark|média do mercado/i.test(pagina));
 });

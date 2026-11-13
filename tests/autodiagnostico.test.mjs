@@ -321,11 +321,11 @@ test('HTML estático: perguntas, acessibilidade e regras de CSP', () => {
   assert.ok(html.includes('aria-live="polite"'));
   assert.ok(/<noscript>[\s\S]*JavaScript[\s\S]*<\/noscript>/.test(html));
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
-  assert.ok(html.includes('<link rel="canonical" href="https://gastrobsc.com.br/autodiagnostico-restaurante.html">'));
+  assert.ok(html.includes('<link rel="canonical" href="https://gastrobsc.com.br/autodiagnostico-restaurante">'));
   assert.ok(html.includes('<title>Diagnóstico de restaurante grátis em 3 minutos | GastroBSC</title>'));
   assert.ok(html.includes('<a class="nav-contact" href="index.html#contato">Conversa gratuita'));
   // CSP: nada inline.
-  assert.ok(!/<script(?![^>]*\ssrc=)[^>]*>/i.test(html), 'script inline');
+  assert.ok(!/<script(?![^>]*\ssrc=)(?![^>]*application\/ld\+json)[^>]*>/i.test(html), 'script inline (só o JSON-LD é permitido)');
   assert.ok(!/\sstyle=/i.test(html), 'style inline');
   assert.ok(!/\son\w+=/i.test(html), 'manipulador inline');
   assert.ok(!/<form\b|<meter|<progress/i.test(html));

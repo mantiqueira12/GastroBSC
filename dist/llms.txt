@@ -1,0 +1,25 @@
+# GastroBSC
+
+> Consultoria de gestão para restaurantes na Serra da Mantiqueira e no Vale do Paraíba, com base em Campos do Jordão/SP. Fundada por Rafael Jacob. Atendimento num raio de cerca de 100 km de Campos do Jordão e online. A primeira conversa de diagnóstico (30 min) é gratuita e sem compromisso.
+
+Razão social: GASTROBSC INOVA SIMPLES (I.S.), CNPJ 66.902.815/0001-74. Contato: rafael.jacob@gastrobsc.com.br, WhatsApp +55 12 99771-0040.
+O método de trabalho se chama BSC Dinâmico (de Balanced Scorecard): olha o restaurante por quatro frentes ligadas entre si: pessoas, processos, clientes e financeiro.
+Os exemplos numéricos do site são fictícios e servem apenas para conferir as contas. O site não promete licença, aprovação em fiscalização nem aumento de lucro.
+
+## Quem é
+
+- [Rafael Jacob, fundador do GastroBSC](https://gastrobsc.com.br/sobre-rafael-jacob): trajetória, formação e forma de trabalho.
+
+## Serviços
+
+- [Consultoria para restaurantes: conversa gratuita](https://gastrobsc.com.br/conversa-gratuita): como funciona a conversa de diagnóstico, o Raio-X da operação e o plano sob medida.
+- [Ficha técnica e precificação](https://gastrobsc.com.br/consultoria-ficha-tecnica-precificacao-restaurante): consultoria de ficha técnica, custos e preços de cardápio.
+- [Escalas 5x2 e 4x3](https://gastrobsc.com.br/escala-5x2-restaurante): apoio à implantação de escalas, organização de turnos e treinamento.
+
+## Guias e ferramentas gratuitas
+
+- [Guia: ficha técnica de prato, custo por porção e CMV](https://gastrobsc.com.br/ficha-tecnica-prato-custo-cmv): definições, exemplo conferível e fontes (Sebrae, Abrasel).
+- [Calculadora de margem e ponto de equilíbrio](https://gastrobsc.com.br/calculadora-margem-ponto-equilibrio): fórmula, exemplo e perguntas frequentes.
+- [Autodiagnóstico do restaurante](https://gastrobsc.com.br/autodiagnostico-restaurante): 10 perguntas sobre custos, cardápio, equipe e gestão.
+- [Checklist de abertura, fechamento e regularização](https://gastrobsc.com.br/checklist-rotinas-restaurante): rotinas por responsável e bloco de regularização sanitária.
+- [Simulador de escalas 5x2 e 4x3](https://gastrobsc.com.br/simulador-escalas-restaurante): compara turnos, pausas e cobertura da equipe.

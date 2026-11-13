@@ -42,7 +42,10 @@ const casos = [
   ['título com mais de 60 caracteres', 'privacidade.html', h => h.replace('<title>Privacidade — GastroBSC</title>', '<title>' + 'x'.repeat(61) + '</title>'), /Title over 60/],
   ['descrição com mais de 155 caracteres', 'privacidade.html', h => h.replace(/(<meta name="description" content=")[^"]*"/, '$1' + 'x'.repeat(156) + '"'), /Description over 155/],
   ['dois H1', 'privacidade.html', h => h.replace('</main>', '<h1>Outro</h1></main>'), /exactly one h1/],
-  ['canonical errado', 'conversa-gratuita.html', h => h.replace('rel="canonical" href="https://gastrobsc.com.br/conversa-gratuita.html"', 'rel="canonical" href="https://gastrobsc.com.br/outra.html"'), /Canonical of/],
+  ['canonical errado', 'conversa-gratuita.html', h => h.replace('rel="canonical" href="https://gastrobsc.com.br/conversa-gratuita"', 'rel="canonical" href="https://gastrobsc.com.br/outra"'), /Canonical of/],
+  ['canonical com .html', 'conversa-gratuita.html', h => h.replace('rel="canonical" href="https://gastrobsc.com.br/conversa-gratuita"', 'rel="canonical" href="https://gastrobsc.com.br/conversa-gratuita.html"'), /Canonical of/],
+  ['JSON-LD alterado sem atualizar a CSP', 'conversa-gratuita.html', h => h.replace('"@context":"https://schema.org"', '"@context":"https://schema.org","x":1'), /missing from CSP/],
+  ['JSON-LD inválido', 'autodiagnostico-restaurante.html', h => h.replace('<script type="application/ld+json">{', '<script type="application/ld+json">{,'), /Invalid JSON-LD/],
 ];
 
 for (const [nome, pagina, alterar, erro] of casos) {
@@ -59,7 +62,7 @@ test('check-site falha quando uma página indexável sai do sitemap', () => {
     fs.cpSync(path.join(raiz, 'dist'), path.join(tmp, 'dist'), { recursive: true });
     fs.copyFileSync(path.join(raiz, 'check-site.mjs'), path.join(tmp, 'check-site.mjs'));
     const mapa = path.join(tmp, 'dist', 'sitemap.xml');
-    fs.writeFileSync(mapa, fs.readFileSync(mapa, 'utf8').replace(/\s*<url>\s*<loc>https:\/\/gastrobsc\.com\.br\/conversa-gratuita\.html<\/loc>[\s\S]*?<\/url>/, ''));
+    fs.writeFileSync(mapa, fs.readFileSync(mapa, 'utf8').replace(/\s*<url>\s*<loc>https:\/\/gastrobsc\.com\.br\/conversa-gratuita<\/loc>[\s\S]*?<\/url>/, ''));
     const r = spawnSync(process.execPath, ['check-site.mjs'], { cwd: tmp, encoding: 'utf8' });
     assert.notEqual(r.status, 0);
     assert.match(r.stderr, /missing from sitemap/);

@@ -3,4 +3,4 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self' 'sha256-SXPa20iFMhVq8WzP80/6fWBxoQvoIpu87Lgjv/wTfl4='; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'
+  Content-Security-Policy: default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self' 'sha256-KV9mJvgbhJLWaJt+ICuT/7xh/2+ahQNGMrWdwphTsac=' 'sha256-PDtZDg82OTWOECCejCr4+wvE6Ib0kimv5bYHkf7UhPw=' 'sha256-7S3oEdgeqfPnaQpW1wxIyOVUy53ul2+loei9eod/5rM=' 'sha256-+xvpglCx0xxY7sjioF/UoF5K/AdVnr8p4yXyPbyKvS0=' 'sha256-0+5E7DjYygU6pDN5L6pj+GuHWfHCEunYO9qiG4SETyQ=' 'sha256-xYxT6SNcC2HYkhSLNVtFG6GCTOhiQOY6lcu/Pm07x60=' 'sha256-ZeuzPv4LBcBslN5xG5VcWQb7FU3w2vEhizLRYA+2s44=' 'sha256-UgiCkYD7XMlYn0yofS+vD0aEJ4N21N0WcEyIq0JhEYM=' 'sha256-sxcSdM9Hu1X9Wf0NF43YhNjGOj/sT0yRaIbZGXBlC6A=' 'sha256-6cSBIkcyW1Ena23525Nox+0T8gDmw2kxOkPB15Vym0Q='; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'
